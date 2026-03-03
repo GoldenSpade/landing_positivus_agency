@@ -1,0 +1,246 @@
+@use '../utils/vars' as *;
+
+// ============================================
+// HEADER
+// ============================================
+
+.header {
+  position: relative;
+  padding: 28px 0;
+  z-index: 100;
+
+  @media (max-width: 900px) {
+    padding: 20px 0;
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    @media (max-width: 900px) {
+      gap: 12px;
+    }
+  }
+
+  &__nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+
+    // Mobile: dropdown from header bottom
+    @media (max-width: 900px) {
+      flex: unset;
+      flex-direction: column;
+      align-items: flex-start;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: $color-white;
+      border-top: 1px solid rgba($color-black, 0.08);
+      box-shadow: 0 12px 32px rgba($color-black, 0.1);
+      padding: 28px 40px 36px;
+      transform: translateY(-8px);
+      opacity: 0;
+      visibility: hidden;
+      transition:
+        transform $transition-base,
+        opacity $transition-base,
+        visibility $transition-base;
+
+      &.nav--open {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .nav__list {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+      }
+
+      .nav__link {
+        font-size: 20px;
+      }
+    }
+
+    @media (max-width: 575px) {
+      padding: 24px 20px 32px;
+    }
+  }
+
+  &__btn {
+    flex-shrink: 0;
+
+    @media (max-width: 900px) {
+      margin-left: auto;
+      height: 44px;
+      padding: 0 18px;
+      font-size: 15px;
+    }
+
+    @media (max-width: 575px) {
+      padding: 0 14px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 450px) {
+      &.btn {
+        display: none;
+      }
+    }
+  }
+
+  &__burger {
+    display: none;
+
+    @media (max-width: 900px) {
+      display: flex;
+    }
+
+    @media (max-width: 450px) {
+      margin-left: auto;
+    }
+  }
+}
+
+// ============================================
+// LOGO
+// ============================================
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+
+  &__icon {
+    width: 36px;
+    height: 36px;
+
+    @media (max-width: 575px) {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  &__text {
+    font-size: 20px;
+    font-weight: $fw-medium;
+    letter-spacing: -0.3px;
+
+    @media (max-width: 575px) {
+      font-size: 18px;
+    }
+  }
+}
+
+// ============================================
+// NAV
+// ============================================
+
+.nav {
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: $nav-gap;
+
+    @media (max-width: 991px) {
+      gap: 24px;
+    }
+  }
+
+  &__link {
+    font-size: 18px;
+    transition: opacity $transition-base;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+// ============================================
+// BURGER
+// ============================================
+
+.burger {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  background: none;
+  border: 1px solid $color-black;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 0;
+
+  &__line {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: $color-black;
+    border-radius: 2px;
+    transition: transform $transition-base, opacity $transition-base;
+  }
+
+  // X-shape when open
+  &--open {
+    .burger__line:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .burger__line:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    .burger__line:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+  }
+}
+
+// ============================================
+// BUTTONS
+// ============================================
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 34px;
+  border-radius: 14px;
+  font-family: $font-base;
+  font-size: 18px;
+  font-weight: $fw-regular;
+  cursor: pointer;
+  transition: background-color $transition-base, color $transition-base;
+
+  &--outline {
+    background-color: transparent;
+    border: 1px solid $color-black;
+    color: $color-black;
+
+    &:hover {
+      background-color: $color-black;
+      color: $color-white;
+    }
+  }
+
+  &--dark {
+    background-color: $color-black;
+    border: 1px solid $color-black;
+    color: $color-white;
+
+    &:hover {
+      background-color: transparent;
+      color: $color-black;
+    }
+  }
+}
