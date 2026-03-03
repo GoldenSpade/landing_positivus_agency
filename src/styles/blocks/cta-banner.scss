@@ -71,6 +71,8 @@
     height: auto;
     flex-shrink: 2;
     align-self: flex-end;
+    transform-origin: center;
+    animation: hero-float 5s ease-in-out infinite alternate;
 
     @media (max-width: 900px) {
       width: 300px;

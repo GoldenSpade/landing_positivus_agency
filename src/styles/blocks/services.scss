@@ -5,7 +5,7 @@
 // ============================================
 
 .services {
-  padding: 60px 0 100px;
+  padding: 0 0 100px;
 
   @media (max-width: 900px) {
     padding: 40px 0 70px;
@@ -160,6 +160,8 @@
     height: auto;
     flex-shrink: 0;
     object-fit: contain;
+    transform-origin: center;
+    animation: card-float 3.5s ease-in-out infinite alternate;
 
     @media (max-width: 991px) {
       width: 130px;
@@ -169,6 +171,13 @@
       width: 100px;
     }
   }
+
+  // Stagger phase so cards don't float in sync
+  &:nth-child(2) &__img { animation-delay: -1s; }
+  &:nth-child(3) &__img { animation-delay: -2s; }
+  &:nth-child(4) &__img { animation-delay: -3s; }
+  &:nth-child(5) &__img { animation-delay: -4s; }
+  &:nth-child(6) &__img { animation-delay: -2.5s; }
 
 
   &__link {
@@ -210,4 +219,10 @@
   &--dark &__link:hover .service-card__arrow circle {
     fill: $color-green;
   }
+}
+
+@keyframes card-float {
+  0%   { transform: rotate(-4deg) scale(1)    translateY(0); }
+  50%  { transform: rotate(0deg)  scale(1.07) translateY(-8px); }
+  100% { transform: rotate(4deg)  scale(1)    translateY(0); }
 }
