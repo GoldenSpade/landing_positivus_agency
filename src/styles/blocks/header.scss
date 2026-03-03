@@ -5,7 +5,9 @@
 // ============================================
 
 .header {
-  position: relative;
+  position: sticky;
+  top: 0;
+  background-color: $color-white;
   padding: 28px 0;
   z-index: 100;
 
@@ -153,11 +155,25 @@
   }
 
   &__link {
+    position: relative;
     font-size: 18px;
-    transition: opacity $transition-base;
 
-    &:hover {
-      opacity: 0.7;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 100%;
+      height: 1.5px;
+      background-color: currentColor;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform $transition-base;
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
     }
   }
 }
