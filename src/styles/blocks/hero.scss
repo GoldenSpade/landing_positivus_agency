@@ -111,39 +111,36 @@
 // ---- Brands ----
 
 .brands {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
 
-  @media (max-width: 900px) {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 16px;
+  &__track {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    width: max-content;
+    animation: marquee 18s linear infinite;
   }
 
   &__item {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex: 1;
-
-    @media (max-width: 900px) {
-      flex: 0 1 calc(33.33% - 16px);
-    }
-
-    @media (max-width: 575px) {
-      flex: 0 1 calc(50% - 16px);
-    }
+    flex-shrink: 0;
 
     img {
       max-height: 48px;
       width: auto;
       object-fit: contain;
-
-      @media (max-width: 575px) {
-        max-height: 36px;
-      }
     }
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }
