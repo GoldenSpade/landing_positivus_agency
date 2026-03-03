@@ -121,6 +121,7 @@
   &__icon {
     width: 36px;
     height: 36px;
+    animation: logo-spin 8s linear infinite;
 
     @media (max-width: 575px) {
       width: 28px;
@@ -258,5 +259,14 @@
       background-color: transparent;
       color: $color-black;
     }
+  }
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

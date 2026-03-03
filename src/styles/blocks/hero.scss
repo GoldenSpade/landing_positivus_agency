@@ -82,6 +82,8 @@
     img {
       width: 100%;
       max-width: 600px;
+      transform-origin: center;
+      animation: hero-float 5s ease-in-out infinite alternate;
 
       @media (max-width: 900px) {
         max-width: 480px;
@@ -91,6 +93,18 @@
         max-width: 100%;
       }
     }
+  }
+}
+
+@keyframes hero-float {
+  0% {
+    transform: rotate(-1.5deg) scale(1);
+  }
+  50% {
+    transform: rotate(0deg) scale(1.02);
+  }
+  100% {
+    transform: rotate(1.5deg) scale(1);
   }
 }
 
