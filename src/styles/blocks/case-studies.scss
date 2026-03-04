@@ -68,12 +68,12 @@
     border-radius: 45px;
     padding: 70px 60px;
     gap: 0;
-
+    
     @media (max-width: 991px) {
       padding: 50px 40px;
       border-radius: 36px;
     }
-
+    
     @media (max-width: 900px) {
       grid-template-columns: 1fr;
       padding: 40px;

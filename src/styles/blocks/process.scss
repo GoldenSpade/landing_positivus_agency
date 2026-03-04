@@ -1,0 +1,204 @@
+@use '../utils/vars' as *;
+
+// ============================================
+// WORKING PROCESS SECTION
+// ============================================
+
+.process {
+  padding: 0 0 100px;
+
+  @media (max-width: 900px) {
+    padding: 0 0 70px;
+  }
+
+  @media (max-width: 575px) {
+    padding: 0 0 50px;
+  }
+
+  &__head {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 80px;
+
+    @media (max-width: 900px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 50px;
+    }
+
+    @media (max-width: 575px) {
+      margin-bottom: 36px;
+    }
+  }
+
+  &__label {
+    flex-shrink: 0;
+    font-size: 40px;
+    font-weight: $fw-medium;
+    line-height: 1;
+    background-color: $color-green;
+    border-radius: 7px;
+    padding: 4px 8px;
+
+    @media (max-width: 991px) {
+      font-size: 32px;
+    }
+
+    @media (max-width: 575px) {
+      font-size: 26px;
+    }
+  }
+
+  &__desc {
+    font-size: 18px;
+    line-height: 1.5;
+    max-width: 580px;
+
+    @media (max-width: 575px) {
+      font-size: 16px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @media (max-width: 575px) {
+      gap: 16px;
+    }
+  }
+}
+
+// ============================================
+// PROCESS ITEM (accordion)
+// ============================================
+
+.process__item {
+  border-radius: 45px;
+  border: 1px solid $color-black;
+  box-shadow: 0 5px 0 0 $color-black;
+  background-color: $color-gray;
+  padding: 40px 60px;
+  transition: background-color $transition-base;
+
+  @media (max-width: 991px) {
+    border-radius: 36px;
+    padding: 36px 40px;
+  }
+
+  @media (max-width: 575px) {
+    border-radius: 28px;
+    padding: 28px 24px;
+  }
+
+  &--open {
+    background-color: $color-green;
+  }
+}
+
+.process__header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+
+  @media (max-width: 575px) {
+    gap: 16px;
+  }
+}
+
+.process__num {
+  font-size: 60px;
+  font-weight: $fw-medium;
+  line-height: 1;
+  flex-shrink: 0;
+
+  @media (max-width: 991px) {
+    font-size: 48px;
+  }
+
+  @media (max-width: 575px) {
+    font-size: 36px;
+  }
+}
+
+.process__name {
+  flex: 1;
+  font-size: 28px;
+  font-weight: $fw-medium;
+  line-height: 1.2;
+
+  @media (max-width: 991px) {
+    font-size: 22px;
+  }
+
+  @media (max-width: 575px) {
+    font-size: 18px;
+  }
+}
+
+.process__toggle {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &-plus  { display: block; }
+  &-minus { display: none; }
+
+  @media (max-width: 575px) {
+    svg {
+      width: 44px;
+      height: 44px;
+    }
+  }
+}
+
+// Show minus / hide plus when open
+.process__item--open {
+  .process__toggle-plus  { display: none; }
+  .process__toggle-minus { display: block; }
+}
+
+// ---- Collapsible body ----
+
+.process__collapse {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.45s ease;
+}
+
+.process__item--open .process__collapse {
+  grid-template-rows: 1fr;
+}
+
+.process__collapse-inner {
+  overflow: hidden;
+}
+
+.process__sep {
+  height: 1px;
+  background-color: $color-black;
+  margin: 30px 0;
+
+  @media (max-width: 575px) {
+    margin: 20px 0;
+  }
+}
+
+.process__text {
+  font-size: 18px;
+  line-height: 1.6;
+
+  @media (max-width: 575px) {
+    font-size: 16px;
+  }
+}
