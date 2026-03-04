@@ -1,11 +1,13 @@
 @use './utils/vars' as *;
 @use './utils/reset';
 @use './blocks/container';
+@use './blocks/buttons';
 @use './blocks/header';
 @use './blocks/hero';
 @use './blocks/services';
 @use './blocks/cta-banner';
 @use './blocks/case-studies';
+@use './blocks/team';
 
 // ============================================
 // BASE
