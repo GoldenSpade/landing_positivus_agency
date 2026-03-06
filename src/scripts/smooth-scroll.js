@@ -27,6 +27,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
     const target = document.querySelector(id);
     if (!target) return;
-    lenis.scrollTo(target, { offset: 0 });
+    const header = document.querySelector('.header');
+    const offset = header ? -(header.offsetHeight + 45) : 0;
+    lenis.scrollTo(target, { offset });
   });
 });
