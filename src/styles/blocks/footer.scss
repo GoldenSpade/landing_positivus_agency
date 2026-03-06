@@ -1,0 +1,324 @@
+@use '../utils/vars' as *;
+
+// ============================================
+// FOOTER
+// ============================================
+
+.footer {
+  background-color: $color-dark-gray;
+  border-radius: 45px 45px 0 0;
+  color: $color-white;
+
+  @media (max-width: 900px) {
+    border-radius: 28px 28px 0 0;
+  }
+
+  @media (max-width: 575px) {
+    border-radius: 20px 20px 0 0;
+  }
+
+  &__inner {
+    padding: 55px 60px 50px;
+
+    @media (max-width: 900px) {
+      padding: 40px 40px 36px;
+    }
+
+    @media (max-width: 575px) {
+      padding: 32px 24px 28px;
+    }
+  }
+
+  // ── Top row: logo | nav | social ──────────
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 66px;
+
+    @media (max-width: 1199px) {
+      gap: 28px;
+      margin-bottom: 50px;
+    }
+
+    @media (max-width: 900px) {
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 575px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+  }
+
+  // ── Logo ──────────────────────────────────
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    text-decoration: none;
+
+    .logo-spin {
+      animation: logo-spin 8s linear infinite;
+    }
+  }
+
+  &__logo-text {
+    font-size: 24px;
+    font-weight: $fw-medium;
+    color: $color-white;
+    line-height: 1;
+  }
+
+  // ── Nav ───────────────────────────────────
+
+  &__nav-list {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+
+    @media (max-width: 1199px) {
+      gap: 24px;
+    }
+
+    @media (max-width: 575px) {
+      gap: 16px;
+    }
+  }
+
+  &__nav-link {
+    font-size: 18px;
+    color: $color-white;
+    text-decoration: underline;
+    transition: color $transition-base;
+
+    &:hover {
+      color: $color-green;
+    }
+
+    @media (max-width: 575px) {
+      font-size: 16px;
+    }
+  }
+
+  // ── Social ────────────────────────────────
+
+  &__social {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-shrink: 0;
+  }
+
+  &__social-link {
+    display: flex;
+    color: $color-white;
+    transition: color $transition-base;
+
+    &:hover {
+      color: $color-green;
+    }
+  }
+
+  // ── Contacts strip ────────────────────────
+
+  &__contacts {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 50px;
+
+    @media (max-width: 900px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 32px;
+      margin-bottom: 36px;
+    }
+
+    @media (max-width: 575px) {
+      margin-bottom: 28px;
+    }
+  }
+
+  &__contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  &__contact-label {
+    display: inline-block;
+    align-self: flex-start;
+    font-size: 18px;
+    font-weight: $fw-medium;
+    background-color: $color-green;
+    color: $color-black;
+    border-radius: 7px;
+    padding: 4px 10px;
+    margin-bottom: 4px;
+  }
+
+  &__contact-item {
+    font-size: 18px;
+    color: $color-white;
+    line-height: 1.5;
+  }
+
+  &__contact-link {
+    color: $color-white;
+    text-decoration: none;
+    transition: color $transition-base;
+
+    &:hover {
+      color: $color-green;
+    }
+  }
+
+  &__address {
+    font-style: normal;
+  }
+
+  // ── Subscribe card ────────────────────────
+
+  &__subscribe {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: rgba($color-white, 0.05);
+    border-radius: 14px;
+    padding: 28px 32px;
+    flex-shrink: 0;
+
+    @media (max-width: 1199px) {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 14px;
+      padding: 24px;
+    }
+
+    @media (max-width: 900px) {
+      width: 100%;
+    }
+
+    @media (max-width: 575px) {
+      padding: 20px 18px;
+      border-radius: 10px;
+    }
+  }
+
+  &__subscribe-input {
+    background: transparent;
+    border: 1px solid $color-white;
+    border-radius: 14px;
+    padding: 16px 24px;
+    font-family: $font-base;
+    font-size: 18px;
+    color: $color-white;
+    outline: none;
+    min-width: 280px;
+    transition: border-color $transition-base;
+
+    &::placeholder {
+      color: rgba($color-white, 0.5);
+    }
+
+    &:focus {
+      border-color: $color-green;
+    }
+
+    @media (max-width: 1199px) {
+      min-width: 0;
+      width: 100%;
+    }
+
+    @media (max-width: 575px) {
+      font-size: 16px;
+      border-radius: 10px;
+    }
+  }
+
+  &__subscribe-btn {
+    flex-shrink: 0;
+    background-color: $color-green;
+    color: $color-black;
+    border: none;
+    border-radius: 14px;
+    padding: 16px 28px;
+    font-family: $font-base;
+    font-size: 18px;
+    font-weight: $fw-medium;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: opacity $transition-base;
+
+    &:hover {
+      opacity: 0.85;
+    }
+
+    @media (max-width: 575px) {
+      font-size: 16px;
+      border-radius: 10px;
+    }
+  }
+
+  // ── Divider ───────────────────────────────
+
+  &__divider {
+    border: none;
+    border-top: 1px solid $color-white;
+    margin: 0 0 32px;
+
+    @media (max-width: 575px) {
+      margin-bottom: 24px;
+    }
+  }
+
+  // ── Bottom row ────────────────────────────
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    @media (max-width: 575px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+  }
+
+  &__copy {
+    font-size: 18px;
+
+    @media (max-width: 575px) {
+      font-size: 15px;
+    }
+  }
+
+  &__policy {
+    font-size: 18px;
+    color: $color-white;
+    text-decoration: underline;
+    transition: color $transition-base;
+
+    &:hover {
+      color: $color-green;
+    }
+
+    @media (max-width: 575px) {
+      font-size: 15px;
+    }
+  }
+}
