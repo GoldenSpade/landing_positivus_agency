@@ -253,7 +253,7 @@
     flex-shrink: 0;
     background-color: $color-green;
     color: $color-black;
-    border: none;
+    border: 1px solid transparent;
     border-radius: 14px;
     padding: 16px 28px;
     font-family: $font-base;
@@ -261,10 +261,12 @@
     font-weight: $fw-medium;
     cursor: pointer;
     white-space: nowrap;
-    transition: opacity $transition-base;
+    transition: background-color $transition-base, color $transition-base, border-color $transition-base;
 
     &:hover {
-      opacity: 0.85;
+      background-color: transparent;
+      color: $color-white;
+      border-color: $color-white;
     }
 
     @media (max-width: 575px) {
