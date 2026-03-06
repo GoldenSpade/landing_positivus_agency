@@ -24,7 +24,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto; /* managed by Lenis */
 }
 
 body {
@@ -56,4 +56,30 @@ section[id] {
   @media (max-width: 575px) {
     scroll-margin-top: 100px;
   }
+}
+
+// ============================================
+// SCROLLBAR
+// ============================================
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $color-gray;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $color-dark-gray;
+  border-radius: 4px;
+
+  &:hover {
+    background: $color-green;
+  }
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: $color-dark-gray $color-gray;
 }
